@@ -1,6 +1,7 @@
 services:
   redis:
     image: redis:7-alpine
+    container_name: medtransparency-redis
     ports:
       - "6379:6379"
     volumes:
@@ -9,6 +10,7 @@ services:
 
   api:
     build: ./backend
+    container_name: medtransparency-api
     ports:
       - "8345:8345"
     env_file:
@@ -25,6 +27,7 @@ services:
 
   frontend:
     build: ./frontend
+    container_name: medtransparency-frontend
     ports:
       - "8344:80"
     depends_on:
