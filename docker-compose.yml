@@ -10,23 +10,23 @@ services:
   api:
     build: ./backend
     ports:
-      - "8000:8000"
+      - "8345:8345"
     env_file:
       - ./backend/.env
     environment:
       - REDIS_URL=redis://redis:6379
-      - CORS_ORIGINS=http://localhost:3000,http://frontend
+      - CORS_ORIGINS=http://localhost:8344,http://frontend
     volumes:
       - ./backend:/app
     depends_on:
       - redis
     restart: unless-stopped
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8345 --reload
 
   frontend:
     build: ./frontend
     ports:
-      - "3000:80"
+      - "8344:80"
     depends_on:
       - api
     restart: unless-stopped

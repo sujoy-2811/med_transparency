@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-Runs at `http://localhost:5173`. Requires the backend to be running at `http://localhost:8000`.
+Runs at `http://localhost:8344`. Requires the backend to be running at `http://localhost:8345`.
 
 ---
 

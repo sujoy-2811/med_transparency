@@ -87,13 +87,13 @@ cp .env.example .env
 # Edit .env and fill in your values (see Environment Variables section below)
 
 # Start the API server
-uvicorn app.main:app --reload --port 8000
+uvicorn app.main:app --reload --port 8345
 ```
 
 The database and tables are created automatically on first run. Seed data (12 procedures, 18 hospitals, 8 regions, 2,000+ submissions) is populated automatically if the database is empty.
 
-API runs at: `http://localhost:8000`  
-Swagger docs: `http://localhost:8000/docs`
+API runs at: `http://localhost:8345`  
+Swagger docs: `http://localhost:8345/docs`
 
 ### Frontend
 
@@ -104,7 +104,7 @@ npm install
 npm run dev
 ```
 
-Frontend runs at: `http://localhost:5173`
+Frontend runs at: `http://localhost:8344`
 
 Make sure the backend is running before starting the frontend.
 
@@ -131,7 +131,7 @@ REFRESH_TOKEN_EXPIRE_DAYS=7
 REDIS_URL=redis://redis:6379             # keep this as-is for Docker
 OPENROUTER_API_KEY=sk-or-v1-...         # required for AI advisor
 OPENROUTER_MODEL=openai/gpt-4o-mini     # or any model on OpenRouter
-CORS_ORIGINS=http://localhost:3000
+CORS_ORIGINS=http://localhost:8344
 ```
 
 ### Step 2 — Build and start
@@ -142,9 +142,9 @@ docker compose up --build
 
 | Service     | URL                        |
 | ----------- | -------------------------- |
-| Frontend    | http://localhost:3000      |
-| Backend API | http://localhost:8000      |
-| API Docs    | http://localhost:8000/docs |
+| Frontend    | http://localhost:8344      |
+| Backend API | http://localhost:8345      |
+| API Docs    | http://localhost:8345/docs |
 | Redis       | localhost:6379             |
 
 To stop:
